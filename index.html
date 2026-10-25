@@ -4,263 +4,687 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radianté | Hydrating Hair Spirit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/phosphor-icons"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#FDFCF8',
-                        midnight: '#111724',
-                        gold: '#C5A059',
-                        softgold: '#E8DCC0',
-                        softgray: '#9CA3AF'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+
     <style>
-        html { scroll-behavior: smooth; }
-        .fade-in { animation: fadeIn 1.5s ease-in; }
+        /* --- GLOBAL VARIABLES (Edit colors here!) --- */
+        :root {
+            --cream: #FDFCF8;
+            --midnight: #111724;
+            --gold: #C5A059;
+            --softgold: #E8DCC0;
+            --softgray: #9CA3AF;
+        }
+
+        /* --- BASE STYLES --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--midnight);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.8;
+        }
+
+        .logo-link img {
+            height: 64px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--cream);
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .btn-shop {
+            background-color: var(--gold);
+            color: var(--midnight);
+            border: 1px solid var(--gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-shop:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background-color: var(--midnight);
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            padding: 100px 40px 40px 40px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .hero-bg-icon {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            opacity: 0.2;
+            font-size: 8rem;
+            color: var(--gold);
+        }
+
+        .hero-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, var(--midnight), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .hero-desc {
+            color: var(--softgray);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            max-width: 450px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--midnight);
+            border: 1px solid var(--gold);
+            padding: 16px 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-large:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .shipping-note {
+            font-size: 0.75rem;
+            color: var(--softgray);
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease-in 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-glow {
+            position: absolute;
+            background-color: rgba(197, 160, 89, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            width: 75%;
+            height: 75%;
+            top: 12.5%;
+            left: 12.5%;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 10;
+            width: 80%;
+            max-width: 380px;
+            object-fit: cover;
+            border-radius: 200px 200px 0 0;
+            border: 2px solid rgba(197, 160, 89, 0.3);
+            box-shadow: 0 0 60px 15px rgba(197, 160, 89, 0.15);
+        }
+
+        /* --- TRUST BANNER --- */
+        .trust-banner {
+            background-color: var(--cream);
+            border-top: 1px solid rgba(232, 220, 192, 0.3);
+            border-bottom: 1px solid rgba(232, 220, 192, 0.3);
+            padding: 32px 0;
+        }
+
+        .trust-logos {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+
+        .trust-logos h3 {
+            font-size: 1.5rem;
+            color: var(--midnight);
+        }
+
+        /* --- BENEFITS SECTION --- */
+        .section {
+            padding: 96px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 64px auto;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--midnight);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--softgray);
+            line-height: 1.6;
+        }
+
+        .benefits-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+        }
+
+        .benefit-card {
+            text-align: center;
+        }
+
+        .benefit-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px auto;
+            background-color: rgba(232, 220, 192, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover .benefit-icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .benefit-icon-wrapper i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--midnight);
+        }
+
+        .benefit-text {
+            color: var(--softgray);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* --- SHOWCASE SECTION --- */
+        .showcase {
+            background-color: var(--midnight);
+            color: var(--cream);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+
+        .showcase-image-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .glow-badge {
+            position: absolute;
+            bottom: -24px;
+            right: -24px;
+            width: 96px;
+            height: 96px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--midnight);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-title {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .showcase-desc {
+            color: var(--softgray);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .showcase-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .showcase-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .showcase-list i {
+            color: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        /* --- BUY SECTION --- */
+        .buy-section {
+            background-color: var(--midnight);
+            text-align: center;
+            position: relative;
+        }
+
+        .buy-card {
+            background-color: var(--cream);
+            padding: 32px;
+            max-width: 400px;
+            margin: 40px auto 0 auto;
+            border-top: 4px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .buy-card img {
+            width: 128px;
+            height: 160px;
+            object-fit: cover;
+            margin: 0 auto 16px auto;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            display: block;
+        }
+
+        .buy-price {
+            color: var(--gold);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .btn-buy {
+            width: 100%;
+            background-color: var(--midnight);
+            color: var(--gold);
+            border: 1px solid var(--midnight);
+            padding: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--gold);
+            color: var(--midnight);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--cream);
+            padding: 48px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(232, 220, 192, 0.3);
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 64px;
+            border-radius: 50%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .social-links a {
+            color: var(--softgray);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--softgray);
+            margin-bottom: 16px;
+        }
+
+        .footer-links a:hover {
+            color: var(--midnight);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--softgray);
+            opacity: 0.6;
+            margin-top: 32px;
+        }
+
+        /* --- ANIMATIONS & MEDIA QUERIES --- */
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(10px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-        .moon-glow { box-shadow: 0 0 60px 15px rgba(197, 160, 89, 0.15); }
+
+        @media (max-width: 768px) {
+            .hero-content, .showcase-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-title { font-size: 3rem; }
+            .hero-desc { margin: 0 auto 32px auto; }
+            .nav-link { display: none; }
+            .btn-large { width: 100%; box-sizing: border-box; }
+            .showcase-list li { justify-content: center; }
+        }
     </style>
 </head>
-<body class="bg-cream text-midnight font-sans antialiased overflow-x-hidden">
+<body>
 
     <!-- Navigation -->
-    <nav class="absolute top-0 left-0 w-full z-20 py-6 px-8 md:px-16 flex justify-between items-center bg-transparent">
-        <div class="flex items-center gap-2">
-            <i class="ph-crown-light text-gold text-2xl"></i>
-            <div class="text-2xl font-serif font-semibold tracking-widest text-cream uppercase">
-                Radianté
-            </div>
+    <header>
+        <a href="#" class="logo-link">
+            <img src="image.png" alt="Radianté Logo">
+        </a>
+        
+        <div class="nav-links">
+            <a href="#benefits" class="nav-link">Benefits</a>
+            <a href="#buy" class="btn-shop">Shop Now</a>
         </div>
-        <div class="flex gap-6 items-center">
-            <a href="#benefits" class="hidden md:block text-sm uppercase tracking-widest text-cream hover:text-gold transition">Benefits</a>
-            <a href="#reviews" class="hidden md:block text-sm uppercase tracking-widest text-cream hover:text-gold transition">Reviews</a>
-            <a href="#buy" class="bg-gold text-midnight border border-gold px-5 py-2 text-sm uppercase tracking-wider hover:bg-transparent hover:text-gold transition duration-300 rounded-full">
-                Shop Now
-            </a>
-        </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-24 pb-12 px-8 md:px-16 lg:px-24 bg-midnight text-cream overflow-hidden">
-        <!-- Mystical Background Elements -->
-        <div class="absolute top-10 right-20 opacity-20"><i class="ph-moon-stars-fill text-9xl text-gold"></i></div>
-        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-midnight to-transparent z-0"></div>
+    <section class="hero">
+        <i class="ph-moon-stars-fill hero-bg-icon"></i>
+        <div class="hero-gradient"></div>
 
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center w-full gap-12 relative z-10">
-            
-            <!-- Text Content -->
-            <div class="w-full md:w-1/2 flex flex-col justify-center fade-in">
-                <p class="text-gold font-medium tracking-[0.25em] uppercase text-sm mb-4 flex items-center gap-2">
-                    <i class="ph-sparkle-fill"></i> Hydrating Hair Spirit
-                </p>
-                <h1 class="text-5xl md:text-7xl font-serif leading-tight mb-6">
-                    Awaken Your Hair's <br>
-                    <span class="italic text-gold">Mystical</span> Radiance.
-                </h1>
-                <p class="text-softgray text-lg mb-10 max-w-md font-light leading-relaxed">
-                    Our celestial hair mist deeply hydrates, refreshes, and imparts a moonlit shine without weighing your hair down—all in just a few weightless spritzes. 
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
-                    <a href="#buy" class="w-full sm:w-auto text-center bg-gold text-midnight border border-gold px-10 py-4 uppercase tracking-widest text-sm hover:bg-transparent hover:text-gold transition duration-300 rounded-none shadow-lg">
-                        Reveal Your Glow - $55
-                    </a>
-                    <p class="text-xs text-softgray mt-2 sm:mt-4 italic">Free celestial shipping worldwide.</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="subtitle"><i class="ph-sparkle-fill"></i> Hydrating Hair Spirit</p>
+                <h1 class="hero-title">Awaken Your Hair's <br><span class="text-gold italic">Mystical</span> Radiance.</h1>
+                <p class="hero-desc">Our celestial hair mist deeply hydrates, refreshes, and imparts a moonlit shine without weighing your hair down—all in just a few weightless spritzes.</p>
+                
+                <div>
+                    <a href="#buy" class="btn-large">Reveal Your Glow - $55</a>
+                    <p class="shipping-note">Free celestial shipping worldwide.</p>
                 </div>
             </div>
 
-            <!-- Product Image -->
-            <div class="w-full md:w-1/2 relative flex justify-center fade-in" style="animation-delay: 0.2s;">
-                <!-- Decorative background shape -->
-                <div class="absolute inset-0 bg-gold/10 rounded-full blur-3xl w-3/4 h-3/4 m-auto"></div>
-                <!-- Placeholder for high-end hair product -->
-                <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Radianté Hair Spirit Bottle" 
-                     class="relative z-10 w-[80%] max-w-[380px] object-cover rounded-t-full moon-glow border-2 border-gold/30">
+            <div class="hero-image-container">
+                <div class="hero-glow"></div>
+                <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Radianté Hair Spirit Bottle" class="hero-image">
             </div>
         </div>
     </section>
 
     <!-- Trust Banner -->
-    <div class="bg-cream border-y border-softgold/30 py-8">
-        <div class="max-w-5xl mx-auto px-8 flex flex-wrap justify-center gap-10 md:gap-24 opacity-60 grayscale">
-            <h3 class="font-serif text-xl md:text-2xl text-midnight">VOGUE</h3>
-            <h3 class="font-serif text-xl md:text-2xl text-midnight">Allure</h3>
-            <h3 class="font-serif text-xl md:text-2xl text-midnight">GLAMOUR</h3>
-            <h3 class="font-serif text-xl md:text-2xl text-midnight">Harper's BAZAAR</h3>
+    <div class="trust-banner">
+        <div class="trust-logos">
+            <h3>VOGUE</h3>
+            <h3>Allure</h3>
+            <h3>GLAMOUR</h3>
+            <h3>Harper's BAZAAR</h3>
         </div>
     </div>
 
-    <!-- Benefits & Ingredients Section -->
-    <section id="benefits" class="py-24 px-8 md:px-16 bg-cream">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <div class="flex justify-center mb-4"><i class="ph-crown-light text-4xl text-gold"></i></div>
-            <h2 class="text-4xl md:text-5xl font-serif mb-4 text-midnight">Celestial Ingredients, <br><span class="italic text-gold">Divine Results.</span></h2>
-            <p class="text-softgray max-w-2xl mx-auto">Crafted with ethically sourced botanical oils and backed by science to deliver unmatched vitality to every strand.</p>
+    <!-- Benefits Section -->
+    <section id="benefits" class="section">
+        <div class="section-header">
+            <i class="ph-crown-light section-icon"></i>
+            <h2 class="section-title">Celestial Ingredients, <br><span class="text-gold italic">Divine Results.</span></h2>
+            <p class="section-desc">Crafted with ethically sourced botanical oils and backed by science to deliver unmatched vitality to every strand.</p>
         </div>
 
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <!-- Benefit 1 -->
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
-                    <i class="ph-drop-light text-3xl text-gold"></i>
-                </div>
-                <h3 class="text-xl font-serif mb-3 text-midnight">Weightless Hydration</h3>
-                <p class="text-softgray font-light text-sm leading-relaxed">
-                    A fine, refreshing mist infused with botanical waters to penetrate the hair shaft, locking in vital moisture instantly without any buildup.
-                </p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon-wrapper"><i class="ph-drop-light"></i></div>
+                <h3 class="benefit-title">Weightless Hydration</h3>
+                <p class="benefit-text">A fine, refreshing mist infused with botanical waters to penetrate the hair shaft, locking in vital moisture instantly without any buildup.</p>
             </div>
-            <!-- Benefit 2 -->
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
-                    <i class="ph-moon-stars-light text-3xl text-gold"></i>
-                </div>
-                <h3 class="text-xl font-serif mb-3 text-midnight">Moonlit Shine</h3>
-                <p class="text-softgray font-light text-sm leading-relaxed">
-                    Light-reflecting micro-minerals smooth the cuticle, leaving your hair with a brilliant, mirror-like celestial gloss with just one spray.
-                </p>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon-wrapper"><i class="ph-moon-stars-light"></i></div>
+                <h3 class="benefit-title">Moonlit Shine</h3>
+                <p class="benefit-text">Light-reflecting micro-minerals smooth the cuticle, leaving your hair with a brilliant, mirror-like celestial gloss with just one spray.</p>
             </div>
-            <!-- Benefit 3 -->
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
-                    <i class="ph-wind-light text-3xl text-gold"></i>
-                </div>
-                <h3 class="text-xl font-serif mb-3 text-midnight">Refresh & Revive</h3>
-                <p class="text-softgray font-light text-sm leading-relaxed">
-                    Creates an invisible shield that blocks humidity while instantly reviving second-day hair, banishing frizz and flyaways on the go.
-                </p>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon-wrapper"><i class="ph-wind-light"></i></div>
+                <h3 class="benefit-title">Refresh & Revive</h3>
+                <p class="benefit-text">Creates an invisible shield that blocks humidity while instantly reviving second-day hair, banishing frizz and flyaways on the go.</p>
             </div>
         </div>
     </section>
 
-    <!-- Product Showcase / Banner -->
-    <section class="py-24 bg-midnight text-cream px-8 md:px-16 border-y border-gold/20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="w-full md:w-1/2 relative">
-                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Silky smooth hair" class="rounded-lg shadow-2xl w-full h-[500px] object-cover border border-gold/20">
-                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center text-midnight font-serif italic text-xl shadow-lg">
-                    Glow
-                </div>
+    <!-- Showcase Section -->
+    <section class="section showcase">
+        <div class="showcase-container">
+            <div class="showcase-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Silky smooth hair" class="showcase-image">
+                <div class="glow-badge">Glow</div>
             </div>
-            <div class="w-full md:w-1/2">
-                <h2 class="text-4xl md:text-5xl font-serif mb-6">A mystical experience in every spritz.</h2>
-                <p class="text-softgray mb-8 leading-relaxed font-light">
-                    This ultra-fine, aromatic mist refreshes and revives wet or dry hair instantly. Designed to be your daily on-the-go ritual for soft, detangled, and ethereal hair that never feels weighed down.
-                </p>
-                <ul class="space-y-4 font-light text-cream">
-                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Cruelty-Free & Vegan</li>
-                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Color-Safe Formula</li>
-                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Free of Sulfates & Parabens</li>
+            
+            <div class="showcase-text">
+                <h2 class="showcase-title">A mystical experience in every spritz.</h2>
+                <p class="showcase-desc">This ultra-fine, aromatic mist refreshes and revives wet or dry hair instantly. Designed to be your daily on-the-go ritual for soft, detangled, and ethereal hair that never feels weighed down.</p>
+                
+                <ul class="showcase-list">
+                    <li><i class="ph-check-circle"></i> Cruelty-Free & Vegan</li>
+                    <li><i class="ph-check-circle"></i> Color-Safe Formula</li>
+                    <li><i class="ph-check-circle"></i> Free of Sulfates & Parabens</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-24 px-8 md:px-16 bg-cream">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-serif mb-4 text-midnight">Adored by <span class="italic text-gold">Thousands</span>.</h2>
-            <p class="text-softgray">Real magic for real hair.</p>
-        </div>
-
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Review 1 -->
-            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
-                <div class="flex gap-1 text-gold mb-4">
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                </div>
-                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"This hydrating mist completely transformed my dry, brittle ends. I just spritz it on and my hair gleams as if it's constantly catching the light. I'm obsessed."</p>
-                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Sarah M.</p>
-            </div>
-            <!-- Review 2 -->
-            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
-                <div class="flex gap-1 text-gold mb-4">
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                </div>
-                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"The scent is heavenly—like a midnight garden. The ultra-fine mist sinks right in, banishes frizz immediately, and leaves my waves refreshed and defined."</p>
-                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Elena R.</p>
-            </div>
-            <!-- Review 3 -->
-            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
-                <div class="flex gap-1 text-gold mb-4">
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star"></i>
-                    <i class="ph-fill ph-star-half"></i>
-                </div>
-                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"I have fine hair and most products weigh it down, but this mist is truly weightless. It gives me that glass-hair look effortlessly with just a quick spray."</p>
-                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Jessica T.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA / Buy Section -->
-    <section id="buy" class="py-24 px-8 md:px-16 bg-midnight text-center relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-midnight to-midnight"></div>
-        <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-serif text-cream mb-6">Ready to awaken your spirit?</h2>
-            <p class="text-softgray mb-10 font-light text-lg">Join over 50,000 women who have made Radianté their holy grail hair ritual.</p>
-            
-            <div class="bg-cream p-8 max-w-md mx-auto rounded-sm border-t-4 border-gold shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                     alt="Radianté Product" class="w-32 h-40 object-cover mx-auto mb-4 border border-gold/30">
-                <h3 class="font-serif text-2xl mb-2 text-midnight">Radianté Hydrating Hair Spirit</h3>
-                <p class="text-gold text-xl mb-6 font-semibold">$55.00</p>
-                <button class="w-full bg-midnight text-gold py-4 uppercase tracking-widest text-sm border border-midnight hover:bg-gold hover:text-midnight transition duration-300">
-                    Add to Ritual
-                </button>
-            </div>
+    <!-- Buy Section -->
+    <section id="buy" class="section buy-section">
+        <h2 class="section-title text-cream">Ready to awaken your spirit?</h2>
+        <p class="section-desc" style="margin-bottom: 20px;">Join over 50,000 women who have made Radianté their holy grail hair ritual.</p>
+        
+        <div class="buy-card">
+            <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Radianté Product">
+            <h3 class="benefit-title">Radianté Hydrating Hair Spirit</h3>
+            <p class="buy-price">$55.00</p>
+            <button class="btn-buy">Add to Ritual</button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-cream py-12 px-8 border-t border-softgold/30 text-center">
-        <div class="flex justify-center items-center gap-2 mb-6">
-            <i class="ph-crown-light text-gold text-3xl"></i>
-            <div class="text-2xl font-serif font-semibold tracking-widest text-midnight uppercase">
-                Radianté
-            </div>
+    <footer>
+        <a href="#" class="footer-logo">
+            <img src="image.png" alt="Radianté Logo">
+        </a>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/_radiante.15_?rpxt=aHp0ZjZlb3RzZms4"><i class="ph-instagram-logo"></i></a>
+            <a href="#"><i class="ph-facebook-logo"></i></a>
+            <a href="#"><i class="ph-tiktok-logo"></i></a>
         </div>
-        <div class="flex justify-center gap-8 mb-8">
-            <a href="https://www.instagram.com/_radiante.15_?rpxt=aHp0ZjZlb3RzZms4" class="text-softgray hover:text-gold transition"><i class="ph-instagram-logo text-2xl"></i></a>
-            <a href="#" class="text-softgray hover:text-gold transition"><i class="ph-facebook-logo text-2xl"></i></a>
-            <a href="#" class="text-softgray hover:text-gold transition"><i class="ph-tiktok-logo text-2xl"></i></a>
+        
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping & Returns</a>
         </div>
-        <div class="text-sm text-softgray flex flex-wrap justify-center gap-6 mb-4">
-            <a href="#" class="hover:text-midnight transition">Privacy Policy</a>
-            <a href="#" class="hover:text-midnight transition">Terms of Service</a>
-            <a href="#" class="hover:text-midnight transition">Contact Us</a>
-            <a href="#" class="hover:text-midnight transition">Shipping & Returns</a>
-        </div>
-        <p class="text-xs text-softgray/60 mt-8">
-            &copy; 2026 Radianté Hair Spirit. All rights reserved.
-        </p>
+        
+        <p class="copyright">&copy; 2026 Radianté Hair Spirit. All rights reserved.</p>
     </footer>
 
 </body>
