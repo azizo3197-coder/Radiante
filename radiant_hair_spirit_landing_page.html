@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radianté | Hydrating Hair Spirit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFCF8',
+                        midnight: '#111724',
+                        gold: '#C5A059',
+                        softgold: '#E8DCC0',
+                        softgray: '#9CA3AF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 1.5s ease-in; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .moon-glow { box-shadow: 0 0 60px 15px rgba(197, 160, 89, 0.15); }
+    </style>
+</head>
+<body class="bg-cream text-midnight font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="absolute top-0 left-0 w-full z-20 py-6 px-8 md:px-16 flex justify-between items-center bg-transparent">
+        <div class="flex items-center gap-2">
+            <i class="ph-crown-light text-gold text-2xl"></i>
+            <div class="text-2xl font-serif font-semibold tracking-widest text-cream uppercase">
+                Radianté
+            </div>
+        </div>
+        <div class="flex gap-6 items-center">
+            <a href="#benefits" class="hidden md:block text-sm uppercase tracking-widest text-cream hover:text-gold transition">Benefits</a>
+            <a href="#reviews" class="hidden md:block text-sm uppercase tracking-widest text-cream hover:text-gold transition">Reviews</a>
+            <a href="#buy" class="bg-gold text-midnight border border-gold px-5 py-2 text-sm uppercase tracking-wider hover:bg-transparent hover:text-gold transition duration-300 rounded-full">
+                Shop Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-12 px-8 md:px-16 lg:px-24 bg-midnight text-cream overflow-hidden">
+        <!-- Mystical Background Elements -->
+        <div class="absolute top-10 right-20 opacity-20"><i class="ph-moon-stars-fill text-9xl text-gold"></i></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-midnight to-transparent z-0"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center w-full gap-12 relative z-10">
+            
+            <!-- Text Content -->
+            <div class="w-full md:w-1/2 flex flex-col justify-center fade-in">
+                <p class="text-gold font-medium tracking-[0.25em] uppercase text-sm mb-4 flex items-center gap-2">
+                    <i class="ph-sparkle-fill"></i> Hydrating Hair Spirit
+                </p>
+                <h1 class="text-5xl md:text-7xl font-serif leading-tight mb-6">
+                    Awaken Your Hair's <br>
+                    <span class="italic text-gold">Mystical</span> Radiance.
+                </h1>
+                <p class="text-softgray text-lg mb-10 max-w-md font-light leading-relaxed">
+                    Our celestial hair mist deeply hydrates, refreshes, and imparts a moonlit shine without weighing your hair down—all in just a few weightless spritzes. 
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
+                    <a href="#buy" class="w-full sm:w-auto text-center bg-gold text-midnight border border-gold px-10 py-4 uppercase tracking-widest text-sm hover:bg-transparent hover:text-gold transition duration-300 rounded-none shadow-lg">
+                        Reveal Your Glow - $55
+                    </a>
+                    <p class="text-xs text-softgray mt-2 sm:mt-4 italic">Free celestial shipping worldwide.</p>
+                </div>
+            </div>
+
+            <!-- Product Image -->
+            <div class="w-full md:w-1/2 relative flex justify-center fade-in" style="animation-delay: 0.2s;">
+                <!-- Decorative background shape -->
+                <div class="absolute inset-0 bg-gold/10 rounded-full blur-3xl w-3/4 h-3/4 m-auto"></div>
+                <!-- Placeholder for high-end hair product -->
+                <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Radianté Hair Spirit Bottle" 
+                     class="relative z-10 w-[80%] max-w-[380px] object-cover rounded-t-full moon-glow border-2 border-gold/30">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Banner -->
+    <div class="bg-cream border-y border-softgold/30 py-8">
+        <div class="max-w-5xl mx-auto px-8 flex flex-wrap justify-center gap-10 md:gap-24 opacity-60 grayscale">
+            <h3 class="font-serif text-xl md:text-2xl text-midnight">VOGUE</h3>
+            <h3 class="font-serif text-xl md:text-2xl text-midnight">Allure</h3>
+            <h3 class="font-serif text-xl md:text-2xl text-midnight">GLAMOUR</h3>
+            <h3 class="font-serif text-xl md:text-2xl text-midnight">Harper's BAZAAR</h3>
+        </div>
+    </div>
+
+    <!-- Benefits & Ingredients Section -->
+    <section id="benefits" class="py-24 px-8 md:px-16 bg-cream">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <div class="flex justify-center mb-4"><i class="ph-crown-light text-4xl text-gold"></i></div>
+            <h2 class="text-4xl md:text-5xl font-serif mb-4 text-midnight">Celestial Ingredients, <br><span class="italic text-gold">Divine Results.</span></h2>
+            <p class="text-softgray max-w-2xl mx-auto">Crafted with ethically sourced botanical oils and backed by science to deliver unmatched vitality to every strand.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Benefit 1 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
+                    <i class="ph-drop-light text-3xl text-gold"></i>
+                </div>
+                <h3 class="text-xl font-serif mb-3 text-midnight">Weightless Hydration</h3>
+                <p class="text-softgray font-light text-sm leading-relaxed">
+                    A fine, refreshing mist infused with botanical waters to penetrate the hair shaft, locking in vital moisture instantly without any buildup.
+                </p>
+            </div>
+            <!-- Benefit 2 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
+                    <i class="ph-moon-stars-light text-3xl text-gold"></i>
+                </div>
+                <h3 class="text-xl font-serif mb-3 text-midnight">Moonlit Shine</h3>
+                <p class="text-softgray font-light text-sm leading-relaxed">
+                    Light-reflecting micro-minerals smooth the cuticle, leaving your hair with a brilliant, mirror-like celestial gloss with just one spray.
+                </p>
+            </div>
+            <!-- Benefit 3 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-softgold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 border border-gold/20">
+                    <i class="ph-wind-light text-3xl text-gold"></i>
+                </div>
+                <h3 class="text-xl font-serif mb-3 text-midnight">Refresh & Revive</h3>
+                <p class="text-softgray font-light text-sm leading-relaxed">
+                    Creates an invisible shield that blocks humidity while instantly reviving second-day hair, banishing frizz and flyaways on the go.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase / Banner -->
+    <section class="py-24 bg-midnight text-cream px-8 md:px-16 border-y border-gold/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Silky smooth hair" class="rounded-lg shadow-2xl w-full h-[500px] object-cover border border-gold/20">
+                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center text-midnight font-serif italic text-xl shadow-lg">
+                    Glow
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-serif mb-6">A mystical experience in every spritz.</h2>
+                <p class="text-softgray mb-8 leading-relaxed font-light">
+                    This ultra-fine, aromatic mist refreshes and revives wet or dry hair instantly. Designed to be your daily on-the-go ritual for soft, detangled, and ethereal hair that never feels weighed down.
+                </p>
+                <ul class="space-y-4 font-light text-cream">
+                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Cruelty-Free & Vegan</li>
+                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Color-Safe Formula</li>
+                    <li class="flex items-center gap-3"><i class="ph-check-circle text-gold text-xl"></i> Free of Sulfates & Parabens</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 px-8 md:px-16 bg-cream">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif mb-4 text-midnight">Adored by <span class="italic text-gold">Thousands</span>.</h2>
+            <p class="text-softgray">Real magic for real hair.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
+                <div class="flex gap-1 text-gold mb-4">
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                </div>
+                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"This hydrating mist completely transformed my dry, brittle ends. I just spritz it on and my hair gleams as if it's constantly catching the light. I'm obsessed."</p>
+                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Sarah M.</p>
+            </div>
+            <!-- Review 2 -->
+            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
+                <div class="flex gap-1 text-gold mb-4">
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                </div>
+                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"The scent is heavenly—like a midnight garden. The ultra-fine mist sinks right in, banishes frizz immediately, and leaves my waves refreshed and defined."</p>
+                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Elena R.</p>
+            </div>
+            <!-- Review 3 -->
+            <div class="bg-white p-10 shadow-sm border border-softgold/40 hover:shadow-md transition">
+                <div class="flex gap-1 text-gold mb-4">
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star-half"></i>
+                </div>
+                <p class="font-serif text-lg mb-6 leading-relaxed text-midnight">"I have fine hair and most products weigh it down, but this mist is truly weightless. It gives me that glass-hair look effortlessly with just a quick spray."</p>
+                <p class="text-sm font-semibold tracking-wider uppercase text-midnight">— Jessica T.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Buy Section -->
+    <section id="buy" class="py-24 px-8 md:px-16 bg-midnight text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-midnight to-midnight"></div>
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-serif text-cream mb-6">Ready to awaken your spirit?</h2>
+            <p class="text-softgray mb-10 font-light text-lg">Join over 50,000 women who have made Radianté their holy grail hair ritual.</p>
+            
+            <div class="bg-cream p-8 max-w-md mx-auto rounded-sm border-t-4 border-gold shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1608248593842-8021c6a8f1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                     alt="Radianté Product" class="w-32 h-40 object-cover mx-auto mb-4 border border-gold/30">
+                <h3 class="font-serif text-2xl mb-2 text-midnight">Radianté Hydrating Hair Spirit</h3>
+                <p class="text-gold text-xl mb-6 font-semibold">$55.00</p>
+                <button class="w-full bg-midnight text-gold py-4 uppercase tracking-widest text-sm border border-midnight hover:bg-gold hover:text-midnight transition duration-300">
+                    Add to Ritual
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream py-12 px-8 border-t border-softgold/30 text-center">
+        <div class="flex justify-center items-center gap-2 mb-6">
+            <i class="ph-crown-light text-gold text-3xl"></i>
+            <div class="text-2xl font-serif font-semibold tracking-widest text-midnight uppercase">
+                Radianté
+            </div>
+        </div>
+        <div class="flex justify-center gap-8 mb-8">
+            <a href="#" class="text-softgray hover:text-gold transition"><i class="ph-instagram-logo text-2xl"></i></a>
+            <a href="#" class="text-softgray hover:text-gold transition"><i class="ph-facebook-logo text-2xl"></i></a>
+            <a href="#" class="text-softgray hover:text-gold transition"><i class="ph-tiktok-logo text-2xl"></i></a>
+        </div>
+        <div class="text-sm text-softgray flex flex-wrap justify-center gap-6 mb-4">
+            <a href="#" class="hover:text-midnight transition">Privacy Policy</a>
+            <a href="#" class="hover:text-midnight transition">Terms of Service</a>
+            <a href="#" class="hover:text-midnight transition">Contact Us</a>
+            <a href="#" class="hover:text-midnight transition">Shipping & Returns</a>
+        </div>
+        <p class="text-xs text-softgray/60 mt-8">
+            &copy; 2026 Radianté Hair Spirit. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
